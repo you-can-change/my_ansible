@@ -1,0 +1,5 @@
+---
+- include: 1.yaml
+  when: from_main_tag=='111'
+- include: 2.yaml
+  when: from_main_tag=='222'

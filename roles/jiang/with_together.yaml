@@ -1,0 +1,9 @@
+---
+- hosts: tao
+  vars:
+    alpha: ['a', 'b', 'c', 'd']
+    numbers: [1, 2, 3, 4, 5]
+  tasks:
+    - raw: "> /tmp/jiangtao/with_together.log"
+    - raw: "echo {{item.0}} and {{item.1}} >> /tmp/jiangtao/with_together.log"
+      with_together: ["{{alpha}}", "{{numbers}}"]

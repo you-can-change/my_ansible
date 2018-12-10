@@ -1,0 +1,7 @@
+- name: copy newivrservers/mod file
+  copy: src={{item}} dest={{pbx_modules_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["newivrservers/modules/*"]
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['pbx', 'pbx_mod', 'pbx_ivr_mod', 'pbx_newivr_mod']
+  notify: ['restart pbx']
+

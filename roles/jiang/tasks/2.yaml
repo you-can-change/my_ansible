@@ -1,0 +1,4 @@
+---
+- name: say 222
+  raw: echo 222 > /tmp/jiangtao/222
+  tags: ['222']

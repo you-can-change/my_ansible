@@ -1,0 +1,12 @@
+---
+- hosts: tao
+  vars: 
+    name: ['jiang', 'tao']
+    age: [23, 24]
+    skill: ['shell', 'python', 'ruby']
+  tasks:
+    - raw: "echo 'name: {{item[0]}} age: {{item[1]}} skill: {{item[2]}}' >> /tmp/jiangtao/with_nested.log"
+      with_nested: 
+        - "{{name}}"
+        - "{{age}}"
+        - "{{skill}}"

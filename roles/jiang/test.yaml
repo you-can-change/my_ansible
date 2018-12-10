@@ -1,0 +1,10 @@
+---
+- hosts: tao
+  name: test register variables
+  tasks:
+    - script: /etc/ansible/roles/jiang/my.sh 111
+      register: my_result
+      ignore_errors: True
+
+    - raw: echo {{my_result.rc}} > /tmp/jiangtao/registry.log
+      when: my_result.rc == 111

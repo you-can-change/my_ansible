@@ -1,0 +1,53 @@
+---
+# for assignservers
+# pbx copy part
+- name: copy assignservers/bin file
+  copy: src={{item}} dest={{pbx_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['assignservers/bin/*']
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx', 'pbx_bin', 'pbx_assign_bin']
+  notify: ['restart pbx']
+
+- name: copy assignservers/etc file
+  copy: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx', 'pbx_bin', 'pbx_assign_etc']
+  notify: ['restart pbx']
+
+- name: copy assignservers/mod file
+  copy: src={{item}} dest={{pbx_modules_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/modules/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx','pbx_mod', 'pbx_assign_mod']
+  notify: ['restart pbx']
+
+- name: copy assignservers custom sounds
+  copy: src={{item}} dest={{pbx_custom_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/sounds/custom/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx', 'pbx_sounds', 'pbx_assign_sounds', 'pbx_assign_custom_sounds']
+  notify: ['restart pbx']
+
+- name: copy assignservers ytotts sounds
+  copy: src={{item}} dest={{pbx_ytotts_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/sounds/ytotts/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx', 'pbx_sounds', 'pbx_assign_sounds', 'pbx_assign_ytotts_sounds']
+  notify: ['restart pbx']
+
+- name: copy assignservers jishida sounds
+  copy: src={{item}} dest={{pbx_jishida_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/sounds/jishida/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx', 'pbx_sounds', 'pbx_assign_sounds', 'pbx_assign_jishida_sounds']
+  notify: ['restart pbx']
+
+# pbx template part
+- name: template assignservers/etc
+  template: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["/etc/ansible/roles/pbx/templates/assignservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['pbx', 'pbx_temp_etc','pbx_assign_temp_etc']
+  notify: ['reload pbx']
+

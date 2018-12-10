@@ -1,0 +1,39 @@
+---
+# for assignservers
+# agi copy part
+- name: agi copy assignservers/bin file
+  copy: src={{item}} dest={{agi_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['assignservers/bin/*']
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['agi', 'agi_bin', 'agi_assign_bin']
+  notify: ['restart agi']
+
+- name: agi copy assignservers/etc file
+  copy: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['agi', 'agi_etc', 'agi_assign_etc']
+  notify: ['restart agi']
+
+- name: agi copy assignservers/lib file
+  copy: src={{item}} dest={{agi_lib_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/lib/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['agi', 'agi_lib', 'agi_assign_lib']
+  notify: ['restart agi']
+
+- name: agi copy assignservers/mod file
+  copy: src={{item}} dest={{agi_mod_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/mod/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['agi', 'agi_mod', 'agi_assign_mod']
+
+
+# agi template part
+- name: agi template assignservers/etc
+  template: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['agi', 'agi_temp_etc', 'agi_assign_temp_etc']
+  notify: ['restart agi']
+

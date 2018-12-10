@@ -1,0 +1,7 @@
+---
+- name: restart pbx
+  raw: /usr/sbin/amportal restart
+- name: restart cti
+  raw: "{{cti_path}}just_cti_server -kill && sleep 1 && {{cti_path}}/just_cti_server"
+- name: restart agi
+  raw: "{{agi_bin_path}}/justagi.init.centos stop && sleep 1 && {{agi_bin_path}}/justagi.init.centos start"

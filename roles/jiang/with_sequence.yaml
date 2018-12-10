@@ -1,0 +1,20 @@
+---
+- hosts: tao
+  tasks:
+    - raw: "> /tmp/jiangtao/with_sequence.log1"
+      tags: one
+    - raw: echo "{{item}}" >> /tmp/jiangtao/with_sequence.log1
+      with_sequence: start=5 end=15 format="jiangtao %d"
+      tags: one
+
+    - raw: "> /tmp/jiangtao/with_sequence.log2"
+      tags: two
+    - raw: echo "{{item}}" >> /tmp/jiangtao/with_sequence.log2
+      with_sequence: start=4 end=14 stride=2
+      tags: two
+
+    - raw: "> /tmp/jiangtao/with_sequence.log3"
+      tags: three
+    - raw: echo "{{item}}" >> /tmp/jiangtao/with_sequence.log3
+      with_sequence: count=4
+      tags: three

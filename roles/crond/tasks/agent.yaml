@@ -1,0 +1,16 @@
+---
+# for agentservers
+# crond copy part
+- name: crond copy agentservers/justcall file
+  copy: src={{item}} dest={{crond_justcall_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['agentservers/justcall/']
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['crond', 'crond_justcall', 'crond_ivr_justcall', 'crond_agent_justcall']
+  notify: ['restart crond']
+
+- name: crond copy agentservers/public file
+  copy: src={{item}} dest={{crond_public_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/public/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['crond', 'crond_public', 'crond_ivr_public', 'crond_agent_public']
+  notify: ['restart crond']

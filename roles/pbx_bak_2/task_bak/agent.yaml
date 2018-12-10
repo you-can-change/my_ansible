@@ -1,0 +1,53 @@
+---
+# for agentservers
+# pbx copy part
+- name: copy agentservers/bin file
+  copy: src={{item}} dest={{pbx_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['agentservers/bin/*']
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_bin', 'pbx_agent_bin']
+  notify: ['restart pbx']
+
+- name: copy agentservers/etc file
+  copy: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_bin', 'pbx_agent_etc']
+  notify: ['restart pbx']
+
+- name: copy agentservers/mod file
+  copy: src={{item}} dest={{pbx_modules_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/modules/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_mod', 'pbx_agent_mod']
+  notify: ['restart pbx']
+
+- name: copy agentservers custom sounds
+  copy: src={{item}} dest={{pbx_custom_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/sounds/custom/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_sounds', 'pbx_agent_sounds', 'pbx_agent_custom_sounds']
+  notify: ['restart pbx']
+
+- name: copy agentservers ytotts sounds
+  copy: src={{item}} dest={{pbx_ytotts_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/sounds/ytotts/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_sounds', 'pbx_agent_sounds', 'pbx_agent_ytotts_sounds']
+  notify: ['restart pbx']
+
+- name: copy agentservers jishida sounds
+  copy: src={{item}} dest={{pbx_jishida_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/sounds/jishida/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_sounds', 'pbx_agent_sounds', 'pbx_agent_jishida_sounds']
+  notify: ['restart pbx']
+
+# pbx template part
+- name: template agentservers/etc
+  template: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["/etc/ansible/roles/pbx/files/agentservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['pbx', 'pbx_temp_etc', 'pbx_agent_temp_etc']
+  notify: ['reload pbx']
+

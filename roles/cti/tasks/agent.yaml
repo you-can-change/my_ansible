@@ -1,0 +1,25 @@
+---
+# for agentservers
+# cti copy part
+- name: cti copy agentservers/bin file
+  copy: src={{item}} dest={{cti_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['agentservers/*']
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['cti', 'cti_bin', 'cti_agent_bin']
+  notify: ['restart cti']
+
+- name: cti copy agentservers/conf file
+  copy: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/conf/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['cti', 'cti_conf', 'cti_agent_conf']
+  notify: ['restart cti']
+
+# cti template part
+- name: cti template agentservers/conf
+  template: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/conf/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['cti', 'cti_temp_conf',  'cti_agent_temp_conf']
+  notify: ['restart cti']
+

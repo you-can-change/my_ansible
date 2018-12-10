@@ -1,0 +1,25 @@
+---
+# for assignservers
+# cti copy part
+- name: cti copy assignservers/bin file
+  copy: src={{item}} dest={{cti_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['assignservers/*']
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['cti', 'cti_bin', 'cti_assign_bin']
+  notify: ['restart cti']
+
+- name: cti copy assignservers/conf file
+  copy: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/conf/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['cti', 'cti_conf', 'cti_assign_conf']
+  notify: ['restart cti']
+
+# cti template part
+- name: cti template assignservers/conf
+  template: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["assignservers/conf/*"]
+  when: ansible_eth0.ipv4.address in groups['assignservers']
+  tags: ['cti', 'cti_temp_conf',  'cti_assign_temp_conf']
+  notify: ['restart cti']
+

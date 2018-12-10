@@ -1,0 +1,3 @@
+---
+- name: restart cti
+  raw: "{{cti_path}}/just_cti_server -kill && sleep 1 && {{cti_path}}/just_cti_server"

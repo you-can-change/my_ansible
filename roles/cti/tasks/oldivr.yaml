@@ -1,0 +1,25 @@
+---
+# for oldivrservers
+# cti copy part
+- name: cti copy oldivrservers/bin file
+  copy: src={{item}} dest={{cti_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['oldivrservers/*']
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['cti', 'cti_bin', 'cti_ivr_bin', 'cti_oldivr_bin']
+  notify: ['restart cti']
+
+- name: cti copy oldivrservers/conf file
+  copy: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/conf/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['cti', 'cti_conf', 'cti_ivr_conf', 'cti_oldivr_conf']
+  notify: ['restart cti']
+
+# cti template part
+- name: cti template oldivrservers/conf
+  template: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/conf/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['cti', 'cti_temp_conf', 'cti_ivr_temp_conf', 'cti_oldivr_temp_conf']
+  notify: ['restart cti']
+

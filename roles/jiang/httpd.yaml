@@ -1,0 +1,8 @@
+---
+- hosts: sites[2]
+  name: 配置http
+  tasks:
+    - name: copy file
+      copy: src=192.168.18.33/etc/httpd/conf/httpd.conf dest=/etc/httpd/conf/httpd.conf force=yes
+      notify:
+        - restart httpd

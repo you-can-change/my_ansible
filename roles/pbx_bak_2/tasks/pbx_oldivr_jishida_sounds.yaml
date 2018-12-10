@@ -1,0 +1,7 @@
+- name: copy oldivrservers jishida sounds
+  copy: src={{item}} dest={{pbx_jishida_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/sounds/jishida/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['pbx', 'pbx_sounds','pbx_ivr_sounds', 'pbx_oldivr_sounds', 'pbx_oldivr_jishida_sounds']
+  notify: ['restart pbx']
+

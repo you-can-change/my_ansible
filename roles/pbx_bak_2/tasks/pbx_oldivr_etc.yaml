@@ -1,0 +1,7 @@
+- name: copy oldivrservers/etc file
+  copy: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['pbx', 'pbx_etc', 'pbx_ivr_etc', 'pbx_oldivr_etc']
+  notify: ['restart pbx']
+

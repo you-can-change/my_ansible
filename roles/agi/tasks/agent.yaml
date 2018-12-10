@@ -1,0 +1,39 @@
+---
+# for agentservers
+# agi copy part
+- name: agi copy agentservers/bin file
+  copy: src={{item}} dest={{agi_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['agentservers/bin/*']
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['agi', 'agi_bin', 'agi_agent_bin']
+  notify: ['restart agi']
+
+- name: agi copy agentservers/etc file
+  copy: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['agi', 'agi_etc', 'agi_agent_etc']
+  notify: ['restart agi']
+
+- name: agi copy agentservers/lib file
+  copy: src={{item}} dest={{agi_lib_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/lib/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['agi', 'agi_lib', 'agi_agent_lib']
+  notify: ['restart agi']
+
+- name: agi copy agentservers/mod file
+  copy: src={{item}} dest={{agi_mod_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/mod/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['agi', 'agi_mod', 'agi_agent_mod']
+
+
+# agi template part
+- name: agi template agentservers/etc
+  template: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agentservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['agentservers']
+  tags: ['agi', 'agi_temp_etc', 'agi_agent_temp_etc']
+  notify: ['restart agi']
+

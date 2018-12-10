@@ -1,0 +1,106 @@
+---
+# pbx copy part
+- name: copy pbx/bin file
+  copy: src={{item}} dest={{pbx_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['pbx/bin/*']
+  tags: ['pbx', 'pbx_bin']
+  notify: ['restart pbx']
+
+- name: copy pbx/etc file
+  copy: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["pbx/etc/*"]
+  tags: ['pbx', 'pbx_etc']
+  notify: ['restart pbx']
+
+- name: copy pbx/mod file
+  copy: src={{item}} dest={{pbx_modules_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["pbx/modules/*"]
+  tags: ['pbx', 'pbx_mod']
+  notify: ['restart pbx']
+
+- name: copy custom sounds
+  copy: src={{item}} dest={{pbx_custom_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["pbx/sounds/custom/*"]
+  tags: ['pbx', 'pbx_custom_sounds', 'pbx_sounds']
+  notify: ['restart pbx']
+
+- name: copy custom sounds
+  copy: src={{item}} dest={{pbx_ytotts_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["pbx/sounds/ytotts/*"]
+  tags: ['pbx', 'pbx_ytotts_sounds','pbx_sounds']
+  notify: ['restart pbx']
+
+- name: copy jishida sounds
+  copy: src={{item}} dest={{pbx_jishida_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["pbx/sounds/jishida/*"]
+  tags: ['pbx', 'pbx_jishida_sounds','pbx_sounds']
+  notify: ['restart pbx']
+
+# cti copy part
+- name: copy cti/bin file
+  copy: src={{item}} dest={{cti_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["just_cti_server/*"]
+  tags: ['cti', 'cti_bin']
+  notify: ['restart cti']
+
+- name: copy cti/conf file
+  copy: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["just_cti_server/conf/*"]
+  tags: ['cti', 'cti_conf']
+  notify: ['restart cti']
+
+# html copy part
+- name: copy html/auto file
+  copy: src={{item}} dest={{cti_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["html/auto/*"]
+  tags: ['html', 'html_auto']
+
+# agi copy part
+- name: copy agi/bin
+  copy: src={{item}} dest={{agi_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agi/bin/*"]
+  tags: ['agi', 'agi_bin']
+
+- name: copy agi/etc
+  copy: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agi/etc/*"]
+  tags: ['agi', 'agi_etc']
+  
+- name: copy agi/lib
+  copy: src={{item}} dest={{agi_lib_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agi/lib/*"]
+  tags: ['agi', 'agi_lib']
+
+- name: copy agi/agimod
+  copy: src={{item}} dest={{agi_agimod_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agi/agimod/*"]
+  tags: ['agi', 'agi_mod']
+
+# pbx template part
+- name: template pbx/etc 
+  template: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["pbx/etc/*"]
+  tags: ['pbx', 'temp_pbx_etc']
+  notify: ['reload pbx']
+
+# cti template part
+- name: template cti/etc
+  template: src={{item}} dest={{cti_conf_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["cti/conf/*"]
+  tags: ['cti', 'temp_cti_etc']
+  notify: ['restart cti']
+
+# agi template part
+- name: template agi/etc
+  template: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agi/etc/*"]
+  tags: ['agi', 'temp_agi_etc']
+  notify: ['restart agi']
+
+- name: template agi/etc
+  template: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["agi/etc/*"]
+  tags: ['agi', 'temp_agi_etc']
+
+#- name: modify agimod file ip
+#  fileinline: 

@@ -1,0 +1,25 @@
+---
+data_path: /data/justcall
+
+pbx_path: "{{data_path}}/pbx"
+pbx_etc_path: "{{pbx_path}}/etc"
+pbx_bin_path: "{{pbx_path}}/bin"
+pbx_mod_path: "{{pbx_path}}/modules"
+pbx_sounds_path: "{{pbx_path}}/lib/sounds"
+pbx_custom_sounds: "{{pbx_sounds_path}}/custom"
+pbx_ytotts_sounds: "{{pbx_sounds_path}}/ytotts"
+pbx_custom_jishida: "{{pbx_sounds_path}}/jishida"
+
+cti_path: "{{data_path}}/just_cti_server"
+cti_conf_path: "{{cti_path}}/conf"
+
+agi_path: "{{data_path}}/justagi"
+agi_bin_path: "{{agi_path}}/bin"
+agi_etc_path: "{{agi_path}}/etc"
+agi_lib_path: "{{agi_path}}/lib"
+agi_mod_path: "{{agi_path}}/agimod"
+
+crontab_justcall_path: "{{data_path}}/crontab/client"
+crontab_public_path: "/data/public/crontab/public"
+
+html_path: "{{data_path}}/html/userweb"

@@ -1,0 +1,7 @@
+---
+- hosts: tao
+  tasks:
+    - file: dest=/tmp/jiangtao/tmp state=directory
+    - copy: src={{item}} dest=/tmp/jiangtao/tmp/ owner=root mode=600
+      with_fileglob:
+        - /var/log/httpd/access_log*

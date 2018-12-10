@@ -1,0 +1,14 @@
+---
+- hosts: tao
+  vars:
+    exec_flag: ''
+  tasks:
+    - name: clean the file
+      raw: "> /tmp/jiangtao/when.log"
+    - name: exec this if is true
+      raw: echo exec {{exec_flag}} >> /tmp/jiangtao/when.log
+      when: exec_flag
+    - name: exec this if is false
+      raw: echo exec {{exec_flag}} >> /tmp/jiangtao/when.log
+      when: not exec_flag
+

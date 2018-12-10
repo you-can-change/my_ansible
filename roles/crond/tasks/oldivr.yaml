@@ -1,0 +1,16 @@
+---
+# for oldivrservers
+# crond copy part
+- name: crond copy oldivrservers/justcall file
+  copy: src={{item}} dest={{crond_justcall_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['oldivrservers/justcall/']
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['crond', 'crond_justcall', 'crond_ivr_justcall', 'crond_oldivr_justcall']
+  notify: ['restart crond']
+
+- name: crond copy oldivrservers/public file
+  copy: src={{item}} dest={{crond_public_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/public/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['crond', 'crond_public', 'crond_ivr_public', 'crond_oldivr_public']
+  notify: ['restart crond']

@@ -1,0 +1,39 @@
+---
+# for newivrservers
+# agi copy part
+- name: agi copy newivrservers/bin file
+  copy: src={{item}} dest={{agi_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['newivrservers/bin/*']
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['agi', 'agi_bin', 'agi_ivr_bin', 'agi_newivr_bin']
+  notify: ['restart agi']
+
+- name: agi copy newivrservers/etc file
+  copy: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["newivrservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['agi', 'agi_etc', 'agi_ivr_etc', 'agi_newivr_etc']
+  notify: ['restart agi']
+
+- name: agi copy newivrservers/lib file
+  copy: src={{item}} dest={{agi_lib_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["newivrservers/lib/*"]
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['agi', 'agi_lib', 'agi_ivr_lib', 'agi_newivr_lib']
+  notify: ['restart agi']
+
+- name: agi copy newivrservers/mod file
+  copy: src={{item}} dest={{agi_mod_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["newivrservers/mod/*"]
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['agi', 'agi_mod', 'agi_ivr_mod', 'agi_newivr_mod']
+
+
+# agi template part
+- name: agi template newivrservers/etc
+  template: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["newivrservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['agi', 'agi_temp_etc', 'agi_ivr_temp_etc', 'agi_newivr_temp_etc']
+  notify: ['restart agi']
+

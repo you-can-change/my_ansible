@@ -1,0 +1,6 @@
+- name: template newivrservers/etc
+  template: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["/etc/ansible/roles/pbx/files/newivrservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['newivrservers']
+  tags: ['pbx', 'pbx_temp_etc', 'pbx_ivr_temp_etc', 'pbx_newivr_temp_etc']
+  notify: ['reload pbx']

@@ -1,0 +1,6 @@
+--- 
+- hosts: tao
+  tasks:
+    - raw: "> /tmp/jiangtao/with_random_choice.log"
+    - raw: "echo {{item}} >> /tmp/jiangtao/with_random_choice.log"
+      with_random_choice: ['shell', 'python', 'ruby', 'C', 'java']

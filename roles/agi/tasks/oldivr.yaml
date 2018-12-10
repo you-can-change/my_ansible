@@ -1,0 +1,39 @@
+---
+# for oldivrservers
+# agi copy part
+- name: agi copy oldivrservers/bin file
+  copy: src={{item}} dest={{agi_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ['oldivrservers/bin/*']
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['agi', 'agi_bin', 'agi_ivr_bin', 'agi_oldivr_bin']
+  notify: ['restart agi']
+
+- name: agi copy oldivrservers/etc file
+  copy: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['agi', 'agi_etc', 'agi_ivr_etc', 'agi_oldivr_etc']
+  notify: ['restart agi']
+
+- name: agi copy oldivrservers/lib file
+  copy: src={{item}} dest={{agi_lib_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/lib/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['agi', 'agi_lib', 'agi_ivr_lib', 'agi_oldivr_lib']
+  notify: ['restart agi']
+
+- name: agi copy oldivrservers/mod file
+  copy: src={{item}} dest={{agi_mod_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/mod/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['agi', 'agi_mod', 'agi_ivr_mod', 'agi_oldivr_mod']
+
+
+# agi template part
+- name: agi template oldivrservers/etc
+  template: src={{item}} dest={{agi_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/etc/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['agi', 'agi_temp_etc', 'agi_ivr_temp_etc', 'agi_oldivr_temp_etc']
+  notify: ['restart agi']
+

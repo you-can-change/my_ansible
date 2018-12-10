@@ -1,0 +1,7 @@
+- name: copy oldivrservers custom sounds
+  copy: src={{item}} dest={{pbx_custom_sounds}} backup=yes owner=justswitch group=justswitch mode=0755
+  with_fileglob: ["oldivrservers/sounds/custom/*"]
+  when: ansible_eth0.ipv4.address in groups['oldivrservers']
+  tags: ['pbx', 'pbx_sounds','pbx_ivr_sounds', 'pbx_oldivr_sounds', 'pbx_oldivr_custom_sounds']
+  notify: ['restart pbx']
+
