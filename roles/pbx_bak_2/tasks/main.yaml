@@ -1,6 +1,0 @@
----
-- include_tasks: pbx_ivr_bin.yaml
-- include_tasks: pbx_ivr_etc.yaml
-- include_tasks: pbx_ivr_mod.yaml
-- include_tasks: pbx_ivr_sounds.yaml
-- include_tasks: pbx_ivr_temp_etc.yaml

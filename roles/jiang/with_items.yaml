@@ -1,7 +1,0 @@
----
-- hosts: tao
-  vars:
-    fruits: ['apple', 'banana']
-  tasks:
-    - raw: "echo 'I want eat {{item}}.' >> /tmp/jiangtao/with_items.log"
-      with_items: "{{fruits}}"

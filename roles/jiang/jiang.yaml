@@ -1,4 +1,0 @@
----
-- hosts: tao
-  roles: 
-    - {role: 'jiang', from_role_tag: '111'}

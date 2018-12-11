@@ -1,8 +1,0 @@
----
-- name: copy newivrservers/etc file
-  copy: src={{item}} dest={{pbx_etc_path}} backup=yes owner=justswitch group=justswitch mode=0755
-  with_fileglob: ["newivrservers/etc/*"]
-  when: ansible_eth0.ipv4.address in groups['newivrservers']
-  tags: ['pbx', 'pbx_etc', 'pbx_ivr_etc', 'pbx_newivr_etc']
-  notify: ['restart pbx']
-

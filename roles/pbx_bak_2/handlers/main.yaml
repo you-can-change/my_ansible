@@ -1,5 +1,0 @@
----
-- name: restart pbx
-  raw: /usr/sbin/amportal restart
-- name: reload pbx
-  raw: "{{pbx_bin_path}}/justswitch -rx 'module reload'"

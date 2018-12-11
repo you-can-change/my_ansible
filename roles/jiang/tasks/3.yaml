@@ -1,4 +1,0 @@
----
-- name: say 333
-  raw: echo 333 > /tmp/jiangtao/333
-  tags: ['333']

@@ -1,7 +1,0 @@
-- name: copy oldivrservers/mod file
-  copy: src={{item}} dest={{pbx_modules_path}} backup=yes owner=justswitch group=justswitch mode=0755
-  with_fileglob: ["oldivrservers/modules/*"]
-  when: ansible_eth0.ipv4.address in groups['oldivrservers']
-  tags: ['pbx', 'pbx_mod', 'pbx_ivr_mod', 'pbx_oldivr_mod']
-  notify: ['restart pbx']
-

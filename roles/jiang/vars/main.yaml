@@ -1,7 +1,0 @@
----
-root_path: /data/justcall
-script_path: "{{root_path}}/sbin"
-pbx_path: /data/justcall/pbx
-cti_path: /data/justcall/just_cti_server
-html_path: /data/justcall/html/userweb_std
-agent: 801

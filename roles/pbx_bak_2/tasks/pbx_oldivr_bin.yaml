@@ -1,7 +1,0 @@
-- name: copy oldivrservers/bin file
-  copy: src={{item}} dest={{pbx_bin_path}} backup=yes owner=justswitch group=justswitch mode=0755
-  with_fileglob: ['oldivrservers/bin/*']
-  when: ansible_eth0.ipv4.address in groups['oldivrservers']
-  tags: ['pbx', 'pbx_bin', 'pbx_ivr_bin', 'pbx_oldivr_bin']
-  notify: ['restart pbx']
-
