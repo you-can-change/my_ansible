@@ -2,27 +2,27 @@
 ivrservers:
   pbx:
     files:
-      sip.conf: /data/justcall/pbx/etc/ansible_sip.conf
-      justswitch: /data/justcall/pbx/bin/ansible_justswitch
-      ytotts/lala.wav: /data/justcall/pbx/lib/sounds/ytotts/ansible_lala.wav
-      ytotts/jiang.wav: /data/justcall/pbx/lib/sounds/ytotts/ansible_jiang.wav
+      ansible_sip.conf: /data/justcall/pbx/etc/ansible_sip.conf
+      ansible_justswitch: /data/justcall/pbx/bin/ansible_justswitch
+      ansible_ytotts/lala.wav: /data/justcall/pbx/lib/sounds/ytotts/ansible_lala.wav
+      ansible_ytotts/jiang.wav: /data/justcall/pbx/lib/sounds/ytotts/ansible_jiang.wav
     templates:
-      sip_custom.conf: /data/justcall/pbx/etc/ansible_sip_custom.conf
+      ansible_sip_custom.conf: /data/justcall/pbx/etc/ansible_sip_custom.conf
   cti:
     files:
-      just_cti_server: /data/justcall/just_cti_server/ansible_just_cti_server
+      ansible_just_cti_server: /data/justcall/just_cti_server/ansible_just_cti_server
     templates:
-      just_cti_server.conf: /data/justcall/just_cti_server/conf/ansible_just_cti_server.conf
+      ansible_just_cti_server.conf: /data/justcall/just_cti_server/conf/ansible_just_cti_server.conf
 
 assignservers:
   pbx:
     files:
-      sip.conf: /data/justcall/pbx/etc/ansible_sip.conf
+      ansible_sip.conf: /data/justcall/pbx/etc/ansible_sip.conf
   agi:
     templates:
-      jkl.agi: /data/justcall/justagi/bin/ansible_jkl.agi
+      ansible_jkl.agi: /data/justcall/justagi/bin/ansible_jkl.agi
   crond:
     files:
-      client: /data/justcall/crontab/ansible_client
+      ansible_client: /data/justcall/crontab/ansible_client
     templates:
-      public: /data/public/crontab/ansible_public
+      ansible_public: /data/public/crontab/ansible_public

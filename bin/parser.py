@@ -64,15 +64,15 @@ class ParserBase(object):
                                 if i == 'bak': continue
                                 if not os.path.isdir(os.path.join(dest_dir, time_dir, os.path.split(i)[0])):
                                   os.makedirs(os.path.join(dest_dir, time_dir, os.path.split(i)[0]))
-                                #shutil.copy(os.path.join(dest_dir,i), os.path.join(dest_dir, time_dir, i))
+                                shutil.copy(os.path.join(dest_dir,i), os.path.join(dest_dir, time_dir, i))
                                 print('backup dest: mv %s %s' % (os.path.join(dest_dir,i), os.path.join(dest_dir, time_dir, i)))  # backup dest 
                                 
-                            #shutil.copy(os.path.join(self.srcpath, src), dest)
+                            shutil.copy(os.path.join(self.srcpath, src), dest)
                             print('cp %s %s' % (os.path.join(self.srcpath, src), dest))  # copy
 
                             if not os.path.isdir(os.path.join(self.srcpath, time_dir, os.path.split(src)[0])):
                                 os.makedirs(os.path.join(self.srcpath, time_dir, os.path.split(src)[0]))
-                            #shutil.move(os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))
+                            shutil.move(os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))
                             print('backup src: mv %s %s' % (os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))) # backup src 
 
 
