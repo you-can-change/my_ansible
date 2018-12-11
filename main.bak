@@ -1,8 +1,0 @@
----
-- hosts: "{{HOST}}"
-  roles: 
-    - pbx
-    - cti
-    - agi
-    - web
-    - crond
