@@ -44,8 +44,8 @@ class ParserBase(object):
             for role, role_values in self.conf.get(group).items():
                 for filepath, filepath_values in role_values.items():
                     for subfile, subfile_values in filepath_values.items():
-                        src = subfile
-                        for subgroup in subgroups:
+                        src = subfile # ansible_sip.conf
+                        for subgroup in subgroups: 
                             if role == 'pbx':
                                 dest_path = subfile_values.replace('/data/justcall/pbx/', '')
                             elif role == 'cti':
@@ -53,10 +53,10 @@ class ParserBase(object):
                             elif role == 'agi':
                                 dest_path = subfile_values.replace('/data/justcall/justagi/', '')
                             elif role == 'crond':
-                                if subfile_values.replace('/data/justcall/crontab/', '') == subfile_values:
-                                    dest_path = subfile_values.replace('/data/public/crontab/', '')
+                                if subfile_values.replace('/data/justcall/crontab/', 'justcall/') == subfile_values:
+                                    dest_path = subfile_values.replace('/data/public/crontab/', 'public/')
                                 else:
-                                    dest_path = subfile_values.replace('/data/justcall/crontab/', '')
+                                    dest_path = subfile_values.replace('/data/justcall/crontab/', 'justcall/')
 
                             dest = os.path.join(self.rootpath, role, filepath, subgroup, dest_path)
                             dest_dir = os.path.dirname(dest)
@@ -70,10 +70,10 @@ class ParserBase(object):
                             shutil.copy(os.path.join(self.srcpath, src), dest)
                             print('cp %s %s' % (os.path.join(self.srcpath, src), dest))  # copy
 
-                            if not os.path.isdir(os.path.join(self.srcpath, time_dir, os.path.split(src)[0])):
-                                os.makedirs(os.path.join(self.srcpath, time_dir, os.path.split(src)[0]))
-                            shutil.move(os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))
-                            print('backup src: mv %s %s' % (os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))) # backup src 
+#                        if not os.path.isdir(os.path.join(self.srcpath, time_dir, os.path.split(src)[0])):
+#                            os.makedirs(os.path.join(self.srcpath, time_dir, os.path.split(src)[0]))
+#                        shutil.move(os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))
+#                        print('backup src: mv %s %s' % (os.path.join(self.srcpath, src), os.path.join(self.srcpath, time_dir, src))) # backup src 
 
 
 if __name__ == '__main__':
