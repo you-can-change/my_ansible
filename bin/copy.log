@@ -39,3 +39,63 @@
 [ 2018-12-12 11:18:26 ]  < 32072 > < cp file > cp /etc/ansible/bin/src/ansible_jkl.agi /etc/ansible/roles/agi/templates/assignservers/bin/ansible_jkl.agi
 [ 2018-12-12 11:18:26 ]  < 32072 > < cp file > cp /etc/ansible/bin/src/ansible_client /etc/ansible/roles/crond/files/assignservers/justcall/ansible_client
 [ 2018-12-12 11:18:26 ]  < 32072 > < cp file > cp /etc/ansible/bin/src/ansible_public /etc/ansible/roles/crond/templates/assignservers/public/ansible_public
+[ 2018-12-12 14:19:18 ]  < 20660 > [ ivrservers ]
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/newivrservers/etc/ansible_sip.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/oldivrservers/etc/ansible_sip.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/newivrservers/bin/ansible_justswitch
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/oldivrservers/bin/ansible_justswitch
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_lala.wav
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_lala.wav
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_jiang.wav
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_jiang.wav
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/newivrservers/etc/ansible_sip_custom.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/oldivrservers/etc/ansible_sip_custom.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/newivrservers/ansible_just_cti_server
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/oldivrservers/ansible_just_cti_server
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/newivrservers/conf/ansible_just_cti_server.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/oldivrservers/conf/ansible_just_cti_server.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > [ assignservers ]
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/assignservers/etc/ansible_sip.conf
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_jkl.agi /etc/ansible/roles/agi/templates/assignservers/bin/ansible_jkl.agi
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_client /etc/ansible/roles/crond/files/assignservers/justcall/ansible_client
+[ 2018-12-12 14:19:18 ]  < 20660 > < cp file > cp /etc/ansible/bin/src/ansible_public /etc/ansible/roles/crond/templates/assignservers/public/ansible_public
+[ 2018-12-12 14:19:54 ]  < 20743 > [ ivrservers ][ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/newivrservers/etc/ansible_sip.conf[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/oldivrservers/etc/ansible_sip.conf[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/newivrservers/bin/ansible_justswitch[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/oldivrservers/bin/ansible_justswitch[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_lala.wav[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_lala.wav[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_jiang.wav[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_jiang.wav[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/newivrservers/etc/ansible_sip_custom.conf[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/oldivrservers/etc/ansible_sip_custom.conf[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/newivrservers/ansible_just_cti_server[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/oldivrservers/ansible_just_cti_server[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/newivrservers/conf/ansible_just_cti_server.conf[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/oldivrservers/conf/ansible_just_cti_server.conf[ 2018-12-12 14:19:54 ]  < 20743 > [ assignservers ][ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/assignservers/etc/ansible_sip.conf[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_jkl.agi /etc/ansible/roles/agi/templates/assignservers/bin/ansible_jkl.agi[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_client /etc/ansible/roles/crond/files/assignservers/justcall/ansible_client[ 2018-12-12 14:19:54 ]  < 20743 > < cp file > cp /etc/ansible/bin/src/ansible_public /etc/ansible/roles/crond/templates/assignservers/public/ansible_public[ 2018-12-12 14:20:47 ]  < 20853 > [ ivrservers ]
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/newivrservers/etc/ansible_sip.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/oldivrservers/etc/ansible_sip.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/newivrservers/bin/ansible_justswitch
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/oldivrservers/bin/ansible_justswitch
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_lala.wav
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_lala.wav
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_jiang.wav
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_jiang.wav
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/newivrservers/etc/ansible_sip_custom.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/oldivrservers/etc/ansible_sip_custom.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/newivrservers/ansible_just_cti_server
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/oldivrservers/ansible_just_cti_server
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/newivrservers/conf/ansible_just_cti_server.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/oldivrservers/conf/ansible_just_cti_server.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > [ assignservers ]
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/assignservers/etc/ansible_sip.conf
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_jkl.agi /etc/ansible/roles/agi/templates/assignservers/bin/ansible_jkl.agi
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_client /etc/ansible/roles/crond/files/assignservers/justcall/ansible_client
+[ 2018-12-12 14:20:47 ]  < 20853 > < cp file > cp /etc/ansible/bin/src/ansible_public /etc/ansible/roles/crond/templates/assignservers/public/ansible_public
+[ 2018-12-12 14:20:49 ]  < 20886 > [ assignservers ]
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/assignservers/etc/ansible_sip.conf
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_jkl.agi /etc/ansible/roles/agi/templates/assignservers/bin/ansible_jkl.agi
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_client /etc/ansible/roles/crond/files/assignservers/justcall/ansible_client
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_public /etc/ansible/roles/crond/templates/assignservers/public/ansible_public
+[ 2018-12-12 14:20:49 ]  < 20886 > [ ivrservers ]
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/newivrservers/etc/ansible_sip.conf
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_sip.conf /etc/ansible/roles/pbx/files/oldivrservers/etc/ansible_sip.conf
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/newivrservers/bin/ansible_justswitch
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_justswitch /etc/ansible/roles/pbx/files/oldivrservers/bin/ansible_justswitch
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_lala.wav
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_lala.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_lala.wav
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/newivrservers/lib/sounds/ytotts/ansible_jiang.wav
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ytotts/ansible_jiang.wav /etc/ansible/roles/pbx/files/oldivrservers/lib/sounds/ytotts/ansible_jiang.wav
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/newivrservers/etc/ansible_sip_custom.conf
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_sip_custom.conf /etc/ansible/roles/pbx/templates/oldivrservers/etc/ansible_sip_custom.conf
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/newivrservers/ansible_just_cti_server
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server /etc/ansible/roles/cti/files/oldivrservers/ansible_just_cti_server
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/newivrservers/conf/ansible_just_cti_server.conf
+[ 2018-12-12 14:20:49 ]  < 20886 > < cp file > cp /etc/ansible/bin/src/ansible_just_cti_server.conf /etc/ansible/roles/cti/templates/oldivrservers/conf/ansible_just_cti_server.conf

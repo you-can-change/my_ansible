@@ -16,7 +16,40 @@ import sys
 import getopt
 
 class ParserBase(object):
-    def __init__(self, filename='filepath.yaml', stdfile='stddir.yaml', timeout=60, run=True, echo=True):
+    """
+用法: python parser.py [选项]...
+NOTE: 选项顺序会影响脚本的执行、
+全局选项：
+    控制日志的选项、
+    --log=[True|False]          是否记录日志、default: True
+    --echo=[True|False]         是否在控制台输出日志、default: True
+
+函数选项：
+    只有加了该选项、才会执行相应的功能、
+    --baksrc=[True|False]       将/etc/ansible/src中的文件移动到/etc/ansible/src/bak/年月日_时分_进程号 目录下去、
+                                True：执行移动并打印日志、False：仅打印日志不移动、
+                                default: True
+    --mycp=[True|False]         将/etc/ansible/bin/src下的文件复制到/etc/ansible/roles/下对应角色下的files和templates中去、
+                                True、执行复制并打印日志、False、仅打印日志不复制、
+                                default: True
+    --back_role=[True|False]    将/etc/ansible/roles/下对应角色下的files和templates目录移到到/etc/ansible/roles/对应角色下的bak/年月日_时分_进程号 目录下去
+                                True、执行移动并打印日志、False、仅打印日志不移动、
+                                default: True
+    --create_role=[True|False]  根据/etc/ansible/bin/stddir.yaml中定义的文件目录、创建目录、
+                                True、执行创建并打印日志、False、仅打印日志不创建、
+                                default: True
+
+重要的事情说三遍：
+    NOTE: 选项顺序会影响脚本的执行结果、
+    NOTE: 选项顺序会影响脚本的执行结果、
+    NOTE: 选项顺序会影响脚本的执行结果、
+
+例子：
+先将/etc/ansible/roles/角色下的files和templates目录移到到bak下去、然后再创建新的目录、最后再将源文件拷贝到对应角色中的目录下去、
+python parser.py --back_role --create_role --mycp
+    """
+
+    def __init__(self, filename='/etc/ansible/bin/filepath.yaml', stdfile='/etc/ansible/bin/templates/stddir.yaml', log=True, echo=True):
         with open(filename, 'r') as f:
             self.conf = yaml.load(f)
         with open(stdfile, 'r') as f:
@@ -26,10 +59,8 @@ class ParserBase(object):
         self.roles = {'pbx', 'cti', 'agi', 'crond'}
         self.rootpath = '/etc/ansible/roles'
         self.srcpath='/etc/ansible/bin/src'
-        self.time = time.time()
-        self.timeout = timeout  # 超时时间(s)、用于计算文件是否在timeout时间范围内复制过去的、如果不是则将其移到备份目录下、
         self.time_dir = "bak/%s_%s/" % (time.strftime('%Y%m%d_%H%M'), os.getpid())
-        self.run = run  # 是否执行复制/移动文件、
+        self.log = log  # 是否执行复制/移动文件、
         self.echo = echo  # 写入日志时、是否同时在控制台打印、
         self.logname = "copy.log"  # 日志文件名
 
@@ -69,12 +100,12 @@ class ParserBase(object):
 
     def wlog(self, logstr):
         """写日志"""
-        time_logstr = "%s < %s > %s\n" % (time.strftime('[ %Y-%m-%d %H:%M:%S ] ') , os.getpid(), logstr)
+        time_logstr = "%s < %s > %s" % (time.strftime('[ %Y-%m-%d %H:%M:%S ] ') , os.getpid(), logstr)
         if self.echo:
             print(time_logstr)
-        if self.run:
+        if self.log:
             with open(self.logname, 'a+') as f:
-                f.write(time_logstr)
+                f.write(time_logstr + '\n')
 
 
     def baksrc(self, sub_run=True):
@@ -88,7 +119,7 @@ class ParserBase(object):
             src_bak_src = os.path.join(self.srcpath, f)
             src_bak_dest = os.path.join(self.srcpath, self.time_dir, f)
             self.mksure_dir(src_bak_dir)
-            if self.run and sub_run and os.path.exists(src_bak_src):
+            if sub_run and os.path.exists(src_bak_src):
                 shutil.move(src_bak_src, src_bak_dest)
                 self.wlog('< backup src > mv %s %s' % (src_bak_src, src_bak_dest)) # backup src 
 
@@ -102,7 +133,7 @@ class ParserBase(object):
                     file_bak_dir = os.path.join(self.rootpath, role, self.time_dir)  # /etc/ansible/roles/pbx/bak/xxxxxxx/
                     file_bak_dest = os.path.join(file_bak_dir, filepath)
                     self.mksure_dir(file_bak_dir)
-                    if self.run and sub_run and os.path.exists(file_bak_src):
+                    if sub_run and os.path.exists(file_bak_src):
                         shutil.move(file_bak_src, file_bak_dest)
                         self.wlog("move %s %s" % (file_bak_src, file_bak_dest))
         
@@ -114,7 +145,7 @@ class ParserBase(object):
                 path = os.path.join(tmp_path, key)
                 self.create_role(path, value, sub_run=sub_run)
         else:
-            if self.run and sub_run:
+            if sub_run:
                 os.makedirs(path)
                 self.wlog("create dir %s" % path)
     
@@ -133,44 +164,33 @@ class ParserBase(object):
                         for subgroup in subgroups:
                             dest_path = self._replacepath(role, subfile_values)
                             dest = os.path.join(self.rootpath, role, filepath, subgroup, dest_path)
-                            #dest_dir = os.path.dirname(dest)
-                            #for i in os.listdir(dest_dir):
-                            #    dest_bak_dir = os.path.join(dest_dir, self.time_dir, os.path.split(i)[0])  # 备份目标的目标目录、
-                            #    dest_bak_src = os.path.join(dest_dir,i)  # 备份目标的源文件、
-                            #    dest_bak_dest = os.path.join(dest_dir, self.time_dir, i) # 备份目标的目标文件、
-                            #    self.mksure_dir(dest_bak_dir)
-                            #    if i == 'bak' or self.time - os.lstat(dest_bak_src).st_mtime < self.timeout:
-                            #        continue
-                            #    if self.run and os.path.exists(dest_bak_src):
-                            #        shutil.move(dest_bak_src, dest_bak_dest)
-                            #    self.wlog('< backup dest > mv %s %s' % (dest_bak_src, dest_bak_dest))  # backup dest 
                             src_abs = os.path.join(self.srcpath, src)
-                            if self.run and sub_run and os.path.exists(src_abs):
+                            if sub_run and os.path.exists(src_abs):
                                 if not os.path.exists(src_abs):
                                     self.wlog('< file not exist > %s' % src_abs)
                                     exit(127)
                                 shutil.copy(src_abs, dest)
                                 self.wlog('< cp file > cp %s %s' % (src_abs, dest))  # copy
 
-        
-
 if __name__ == '__main__':
-    opts, args = getopt.getopt(sys.argv[1:], 'f:s:', ['baksrc=', 'mycp=', 'back_role=', 'create_role'])
-    print(type(opts))
-    for i in opts:
-        print(i)
-#    myexec = ParserBase(filename='filepath.yaml', stdfile='stddir.yaml', timeout=60, run=True, echo=False)
-#    myexec.baksrc(sub_run=False)
-#    myexec.baksrc(sub_run=False)
-#    myexec.mycp(sub_run=False)
-#    myexec.mycp(sub_run=True)
-#    myexec.back_role(sub_run=False)
-#    myexec.back_role(sub_run=False)
-#    myexec.create_role(myexec.rootpath, myexec.std, sub_run=False)
-#    myexec.create_role(myexec.rootpath, myexec.std, sub_run=False)
-
-
-
-
-
+    opts, args = getopt.getopt(sys.argv[1:], 'h', ['baksrc', 'mycp', 'back_role', 'create_role', 'run', 'echo', 'help'])
+    myexec = ParserBase()
+    rundict = {}
+    for op, value in opts:
+        if op == '-h' or '--help':
+            print(myexec.__doc__)
+            exit(0)
+        if op == '--log':
+            myexec.run = value or True
+        elif op == '--echo':
+            myexec.echo = value or True
+        else:
+            rundict[op]=value
+    
+    for func, arg in rundict.items():
+        execfunc = getattr(myexec, func.replace('--',''))
+        if func == 'create_role':
+            execfunc(myexec.rootpath, myexec.std, arg or True)
+        else:
+            execfunc(arg or True)
 

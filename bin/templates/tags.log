@@ -1,0 +1,115 @@
+tag 层级包含关系
+
+pbx -- 对所有服务器的pbx做操作、
+	pbx_bin
+		pbx_ivr_bin
+			pbx_newivr_bin
+			pbx_oldivr_bin
+		pbx_agent_bin
+		pbx_assign_bin
+	pbx_etc
+		pbx_ivr_etc
+			pbx_newivr_etc
+			pbx_oldivr_etc
+		pbx_agent_etc
+		pbx_assign_etc
+	pbx_mod
+			pbx_newivr_mod
+			pbx_oldivr_mod
+		pbx_agent_mod
+		pbx_assign_mod
+	pbx_sounds
+		pbx_ivr_sounds
+			pbx_newivr_sounds
+				pbx_newivr_custom_sounds
+				pbx_newivr_ytotts_sounds
+				pbx_newivr_jishida_sounds
+			pbx_oldivr_sounds
+				pbx_oldivr_custom_sounds
+				pbx_oldivr_ytotts_sounds
+				pbx_oldivr_jishida_sounds
+		pbx_agent_sounds
+			pbx_agent_custom_sounds
+			pbx_agent_ytotts_sounds
+			pbx_agent_jishida_sounds
+		pbx_assign_sounds
+			pbx_assign_custom_sounds
+			pbx_assign_ytotts_sounds
+			pbx_assign_jishida_sounds	
+	pbx_temp_etc
+		pbx_ivr_temp_etc
+			pbx_newivr_temp_etc
+			pbx_oldivr_temp_etc
+		pbx_agent_temp_etc
+		pbx_assign_temp_etc
+		
+cti -- 对所有服务器的cti做操作、
+	cti_bin
+		cti_ivr_bin
+			cti_newivr_bin
+			cti_oldivr_bin
+		cti_agetn_bin
+		cti_assign_bin
+	cti_conf
+		cti_ivr_conf
+			cti_newivr_conf
+			cti_oldivr_conf
+		cti_agent_conf
+		cti_assign_conf
+	cti_temp_conf
+		cti_ivr_temp_conf
+			cti_newivr_temp_conf
+			cti_oldivr_temp_conf
+		cti_agent_temp_etc
+		cti_assign_temp_etc
+	
+	
+agi -- 对所有服务器的agi做操作、
+	agi_bin
+		agi_ivr_bin
+			agi_newivr_bin
+			agi_oldivr_bin
+		agi_agent_bin
+		agi_assign_bin
+	agi_etc
+		agi_ivr_etc
+			agi_newivr_etc
+			agi_oldivr_etc
+		agi_agent_etc
+		agi_assign_etc
+	agi_lib
+		agi_ivr_lib
+			agi_newivr_lib
+			agi_oldivr_lib
+		agi_agent_lib
+		agi_assign_lib
+	agi_mod
+		agi_ivr_mod
+			agi_newivr_mod
+			agi_oldivr_mod
+		agi_agent_mod
+		agi_assign_mod
+	agi_temp_etc
+		agi_ivr_temp_etc
+			agi_newivr_temp_etc
+			agi_oldivr_temp_etc
+		agi_agent_temp_etc
+		agi_assign_temp_etc
+
+crond -- 对所有服务器的crond做操作、
+	crond_justcall
+		crond_ivr_justcall
+			crond_newivr_justcall
+			crond_oldivr_justcall
+		crond_agent_justcall
+		crond_assign_justcall
+	crond_public
+		crond_ivr_public
+			crond_newivr_public
+			crond_oldivr_public
+		crond_agent_public
+		crond_assign_public
+		
+html -- 对所有服务器的html做操作、
+	pass
+

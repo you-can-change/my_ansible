@@ -1,0 +1,28 @@
+---
+ivrservers:
+  pbx:
+    files:
+      ansible_sip.conf: /data/justcall/pbx/etc/ansible_sip.conf
+      ansible_justswitch: /data/justcall/pbx/bin/ansible_justswitch
+      ytotts/ansible_lala.wav: /data/justcall/pbx/lib/sounds/ytotts/ansible_lala.wav
+      ytotts/ansible_jiang.wav: /data/justcall/pbx/lib/sounds/ytotts/ansible_jiang.wav
+    templates:
+      ansible_sip_custom.conf: /data/justcall/pbx/etc/ansible_sip_custom.conf
+  cti:
+    files:
+      ansible_just_cti_server: /data/justcall/just_cti_server/ansible_just_cti_server
+    templates:
+      ansible_just_cti_server.conf: /data/justcall/just_cti_server/conf/ansible_just_cti_server.conf
+
+assignservers:
+  pbx:
+    files:
+      ansible_sip.conf: /data/justcall/pbx/etc/ansible_sip.conf
+  agi:
+    templates:
+      ansible_jkl.agi: /data/justcall/justagi/bin/ansible_jkl.agi
+  crond:
+    files:
+      ansible_client: /data/justcall/crontab/ansible_client
+    templates:
+      ansible_public: /data/public/crontab/ansible_public
