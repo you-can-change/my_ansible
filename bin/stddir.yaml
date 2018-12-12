@@ -1,0 +1,148 @@
+---
+# 警告勿轻动、会根据这个对应关系备份role中的文件、
+pbx:
+  files:
+    agentservers:
+      bin:
+      etc:
+      lib:
+        sounds:
+          custom:
+          jishida:
+          ytotts:
+      modules:
+
+    assignservers:
+      bin:
+      etc:
+      lib:
+        sounds:
+          custom:
+          jishida:
+          ytotts:
+      modules:
+
+    newivrservers:
+      bin:
+      etc:
+      lib:
+        sounds:
+          custom:
+          jishida:
+          ytotts:
+      modules:
+
+    oldivrservers:
+      bin:
+      etc:
+      lib:
+        sounds:
+          custom:
+          jishida:
+          ytotts:
+      modules:
+  templates:
+    agentservers:
+      etc:
+    assignservers:
+      etc:
+    newivrservers:
+      etc:
+    oldivrservers:
+      etc:
+agi:
+  files:
+    agentservers:
+      bin:
+      etc:
+      lib:
+      mod:
+    assignservers:
+      bin:
+      etc:
+      lib:
+      mod:
+    newivrservers:
+      bin:
+      etc:
+      lib:
+      mod:
+    oldivrservers:
+      bin:
+      etc:
+      lib:
+      mod:
+
+  templates:
+    agentservers:
+      bin:
+      etc:
+      lib:
+      mod:
+    assignservers:
+      bin:
+      etc:
+      lib:
+      mod:
+    newivrservers:
+      bin:
+      etc:
+      lib:
+      mod:
+    oldivrservers:
+      bin:
+      etc:
+      lib:
+      mod:
+
+cti:
+  files:
+    agentservers:
+      conf:
+    assignservers:
+      conf:
+    newivrservers:
+      conf:
+    oldivrservers:
+      conf:
+
+  templates:
+    agentservers:
+      conf:
+    assignservers:
+      conf:
+    newivrservers:
+      conf:
+    oldivrservers:
+      conf:
+
+crond:
+  files:
+    agentservers:
+      justcall:
+      public:
+    assignservers:
+      justcall:
+      public:
+    newivrservers:
+      justcall:
+      public:
+    oldivrservers:
+      justcall:
+      public:
+
+  templates:
+    agentservers:
+      justcall:
+      public:
+    assignservers:
+      justcall:
+      public:
+    newivrservers:
+      justcall:
+      public:
+    oldivrservers:
+      justcall:
+      public:
+
+# {'pbx': {'files': {'agentservers': {'bin': None, 'etc': None, 'lib': {'sounds': {'custom': None, 'jishida': None, 'ytotts': None}}, 'modules': None}, 'assignservers': {'bin': None, 'etc': None, 'lib': {'sounds': {'custom': None, 'jishida': None, 'ytotts': None}}, 'modules': None}, 'newivrservers': {'bin': None, 'etc': None, 'lib': {'sounds': {'custom': None, 'jishida': None, 'ytotts': None}}, 'modules': None}, 'oldivrservers': {'bin': None, 'etc': None, 'lib': {'sounds': {'custom': None, 'jishida': None, 'ytotts': None}}, 'modules': None}}, 'templates': {'agentservers': {'etc': None}, 'assignservers': {'etc': None}, 'newivrservers': {'etc': None}, 'oldivrservers': {'etc': None}}}, 'agi': {'files': {'agentservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}, 'assignservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}, 'newivrservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}, 'oldivrservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}}, 'templates': {'agentservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}, 'assignservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}, 'newivrservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}, 'oldivrservers': {'bin': None, 'etc': None, 'lib': None, 'mod': None}}}, 'cti': {'files': {'agentservers': {'conf': None}, 'assignservers': {'conf': None}, 'newivrservers': {'conf': None}, 'oldivrservers': {'conf': None}}, 'templates': {'agentservers': {'conf': None}, 'assignservers': {'conf': None}, 'newivrservers': {'conf': None}, 'oldivrservers': {'conf': None}}}, 'cornd': {'files': {'agentservers': {'justcall': None, 'public': None}, 'assignservers': {'justcall': None, 'public': None}, 'newivrservers': {'justcall': None, 'public': None}, 'oldivrservers': {'justcall': None, 'public': None}}, 'templates': {'agentservers': {'justcall': None, 'public': None}, 'assignservers': {'justcall': None, 'public': None}, 'newivrservers': {'justcall': None, 'public': None}, 'oldivrservers': {'justcall': None, 'public': None}}}}

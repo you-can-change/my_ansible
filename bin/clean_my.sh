@@ -10,5 +10,7 @@ for i in $(grep ansible /etc/ansible/bin/filepath.yaml | awk -F '[ */]' '{print 
 done
 mkdir -p /etc/ansible/bin/src/ytotts/ && mv /etc/ansible/bin/src/*wav /etc/ansible/bin/src/ytotts/
 rm -rf /etc/ansible/bin/src/bak/*
+rm -rf /etc/ansible/roles/*/bak/*
 find /etc/ansible/roles/*/{files,templates} -name bak | xargs rm -rf
 find /etc/ansible/roles/*/{files,templates} -type f | xargs rm -rf
+mkdir -p /etc/ansible/roles/{agi,crond,cti,pbx,web}/{bak,files,templates}
