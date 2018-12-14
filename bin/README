@@ -2,14 +2,21 @@
 脚本用于协助ansible-playbook的执行、简化升级时复制文件的操作、
 
 
-1、先将要拷贝的文件复制到/etc/ansible/bin/src中、
-2、编写/etc/ansible/bin/filepath.yaml、将文件src中的文件对应关系和要复制到远程服务器上目录的关系对应好、
+1、执行python parser.py --baksrc --back_role --create_role 保持源目录和roles中的目录干净、
+
+2、将要拷贝的文件复制到/etc/ansible/bin/src中、
+
+3、编写/etc/ansible/bin/filepath.yaml、将文件src中的文件对应关系和要复制到远程服务器上目录的关系对应好、
 	NOTE: 可参考/etc/ansible/bin/templates/filepath.yaml和/etc/ansible/bin/templates/src中的文件、
-3、执行python parser.py --mycp 将/etc/ansible/bin/src中的文件复制到对应角色的目录下去、
+
+4、执行python parser.py --mycp 将/etc/ansible/bin/src中的文件复制到对应角色的目录下去、
 	NOTE: python parser.py -h 查看脚本帮助信息、
-4、执行ansible-playbook main.yaml -e "HOST=主机/组名" --tags="tag1, tag2"、将本机role中的文件复制到远程机器上去、
+
+5、执行ansible-playbook main.yaml -e "HOST=主机/组名" --tags="tag1, tag2"、将本机role中的文件复制到远程机器上去、
 	NOTE: 支持的tag可在/etc/ansible/bin/templates/tag.log中查看、
 		  通过-e "HOST=主机/组名" 控制复制的主机、
 		  通过tag控制要复制的角色文件、
 		  角色有： pbx, agi, cti, crond, html
-	警告：修改对应角色的文件后ansible会重启/重载对应的服务、
+	警告：修改对应角色的文件后ansible-plahbook会 重启/重载 对应的服务、
+
+

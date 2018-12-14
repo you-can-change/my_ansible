@@ -86,13 +86,5 @@ agentservers
 [rsite]
 10.90.40.18 site_code=755100
 
-[sites:vars]
-ansible_ssh_user=root
-ansible_ssh_pass=justcall2005
-
-[rsite:vars]
-ansible_ssh_user=root
-ansible_ssh_pass=justcall2005
-
 [tao]
 192.168.18.33

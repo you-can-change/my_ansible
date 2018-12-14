@@ -1,4 +1,15 @@
 ---
+#yaml语法、不允许tab、用空格、
+#yaml语法参考： http://www.ansible.com.cn/docs/YAMLSyntax.html
+#
+#
+#主机组名：
+#  角色名：
+#    files: # 源文件(即整个文件复制过去无需改动什么的)：
+#      源文件(/etc/ansible/bin/src下的相对路径): 目标主机上的文件路径(绝对路径)
+#    templates: # 根据主机不同、而需要变动的配置文件、路径规则与files一样、单个主机的变量可以在/etc/ansible/hosts中定义、或者/etc/ansible/host_vars中定义、
+#      文件名: 目标主机上的文件路径、
+
 ivrservers:
   pbx:
     files:
